@@ -5,11 +5,8 @@ from flask import jsonify, abort, Flask
 from api.v1.views import app_views
 
 
-app = Flask(__name__)
-
-
-@app.route('/unauthorized')
-def unauthorized():
+@app_views.route('/unauthorized')
+def unauthorized_error():
     abort(401)
 
 
