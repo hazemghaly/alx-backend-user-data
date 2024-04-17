@@ -16,7 +16,7 @@ def unauthorized_error():
 @app_views.route('/forbidden')
 def forbidden_error():
     """forbiddene error abort code"""
-    abort(401)
+    abort(403)
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
