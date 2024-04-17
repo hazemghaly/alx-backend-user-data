@@ -7,6 +7,9 @@ from api.v1.views import app_views
 
 @app_views.route('/unauthorized')
 def unauthorized_error():
+    """{"error":"Unauthorized"}
+      - the status of the API
+    """
     abort(401)
 
 
