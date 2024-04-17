@@ -13,6 +13,12 @@ def unauthorized_error():
     abort(401)
 
 
+@app_views.route('/forbidden')
+def forbidden_error():
+    """forbiddene error abort code"""
+    abort(401)
+
+
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status() -> str:
     """ GET /api/v1/status
