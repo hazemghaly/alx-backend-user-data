@@ -3,6 +3,7 @@
 Route module for the API
 """
 from flask import Flask, request
+from typing import List, TypeVar
 
 
 class Auth():
