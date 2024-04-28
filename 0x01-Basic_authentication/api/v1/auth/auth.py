@@ -34,3 +34,9 @@ class Auth():
     def current_user(self, request=None) -> TypeVar('User'):
         """returns None - request will be the Flask request object"""
         return None
+
+
+class BasicAuth(Auth):
+    ''' Inherits from Auth.Class defintion for auth create
+      a class to manage the API authentication.
+    '''
