@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Inherits from Auth.Class defintion for auth create
-      a class to manage the API authentication.
+a class to manage the API authentication.
 """
 from api.v1.auth.auth import Auth
 
@@ -16,11 +16,11 @@ class BasicAuth(Auth):
             header for a Basic Authentication
             '''
             if authorization_header is None:
-                  return None
+                return None
             if not isinstance(authorization_header, str):
-                  return None
+                return None
             if not authorization_header.startswith('Basic '):
-                  return None
+                return None
             auth_type, auth_value = authorization_header.split(' ', 1)
             if auth_type == 'Basic':
-                  return auth_value.strip()
+                return auth_value.strip()
