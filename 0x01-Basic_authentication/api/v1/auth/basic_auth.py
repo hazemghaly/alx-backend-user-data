@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 Inherits from Auth.Class defintion for auth create
-a class to manage the API authentication.
+      a class to manage the API authentication.
 """
 from api.v1.auth.auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
     ''' Inherits from Auth.Class defintion for auth create
-a class to manage the API authentication.
-'''
+      a class to manage the API authentication.
+    '''
     def extract_base64_authorization_header(
             self, authorization_header: str) -> str:
         '''eturns the Base64 part of the Authorization
@@ -24,3 +25,20 @@ a class to manage the API authentication.
         auth_type, auth_value = authorization_header.split(' ', 1)
         if auth_type == 'Basic':
             return auth_value.strip()
+
+    def decode_base64_authorization_header(
+            self, base64_authorization_header: str) -> str:
+        '''
+        that returns the decoded value of a
+        Base64 string base64_authorization_header
+        '''
+        if base64_authorization_header is None:
+            return None
+        if not isinstance(base64_authorization_header, str):
+            return None
+        try:
+            decoded_credentials = base64.b64decode(base64_authorization_header)
+            decoded_credentials_utf8 = decoded_credentials.decode('utf-8')
+        except Exception as e:
+            return None
+        return decoded_credentials_utf8
