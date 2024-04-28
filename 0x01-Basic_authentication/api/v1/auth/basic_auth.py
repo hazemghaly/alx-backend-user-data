@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Route module for the API
+Inherits from Auth.Class defintion for auth create
+      a class to manage the API authentication.
 """
 from auth import Auth
 
