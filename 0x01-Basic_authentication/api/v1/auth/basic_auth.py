@@ -5,6 +5,7 @@ Inherits from Auth.Class defintion for auth create
 """
 from api.v1.auth.auth import Auth
 import base64
+from typing import Tuple, TypeVar, Union
 
 
 class BasicAuth(Auth):
@@ -42,3 +43,20 @@ class BasicAuth(Auth):
         except Exception as e:
             return None
         return decoded_credentials_utf8
+
+
+def extract_user_credentials(
+        self,
+        decoded_base64_authorization_header: str
+        ) -> Tuple[str]:
+    """
+Extract email username and password
+"""
+    if (
+        decoded_base64_authorization_header is None
+        or type(decoded_base64_authorization_header) != str
+        or ":" not in decoded_base64_authorization_header
+    ):
+        return None, None
+    credentials = decoded_base64_authorization_header.split(':')
+    return credentials[0], ':'.join(credentials[1:])
