@@ -6,6 +6,7 @@ Inherits from Auth.Class defintion for auth create
 from api.v1.auth.auth import Auth
 import base64
 from typing import Tuple, TypeVar, Union
+from api.v1.views.users import User
 
 
 class BasicAuth(Auth):
