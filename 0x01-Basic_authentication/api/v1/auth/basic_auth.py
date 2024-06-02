@@ -88,9 +88,8 @@ class BasicAuth(Auth):
         API is fully protected by a Basic Authentication!
         '''
         email, password = self.extract_user_credentials(
-                self.decode_base64_authorization_header(
+            self.decode_base64_authorization_header(
                 self.extract_base64_authorization_header(
-                self.authorization_header(request=request)))
-                )
+                    self.authorization_header(request=request))))
         print(email, password)
         return self.user_object_from_credentials(email, password)
