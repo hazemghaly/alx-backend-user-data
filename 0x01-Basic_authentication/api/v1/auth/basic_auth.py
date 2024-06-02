@@ -49,7 +49,6 @@ class BasicAuth(Auth):
               decoded_base64_authorization_header: str
               ) -> Tuple[str]:
         """Extract email username and password
-        that returns the user email and password
         from the Base64 decoded value.
         You can assume decoded_base64_authorization_header will contain only one
         """
